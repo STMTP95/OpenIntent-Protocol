@@ -2,6 +2,18 @@
 
 Brief demo for the idea **Intent + Solver Auction + Settlement**.
 
+Open Intent + Auction Router (reduce MEV, optimize price)
+
+Weaknesses: user swap/bridge susceptible to front-run, bad pricing, MEV.
+Idea: standard "Intent" (user describes goal: change A→B, receive at least X, deadline...) instead of calling DEX itself.
+Protocol organizes auction/solver competition: many solvers submit bids to best fulfill their intent; on-chain only settles the result.
+Ingredients:
+
+• Intent schema (EIP-style)
+• Solver registry + bonding/slashing (anti-cheat)
+• Settlement contract (verify conditions, distribute fees)
+Open value: many wallets/dApps integrate the same intent standard.
+
 ## Idea
 - **Maker** signs an off-chain `Intent` (EIP-712): wants to exchange `tokenIn` -> `tokenOut`.
 - **Relayer/anyone** posts intent to chain.
