@@ -1,4 +1,4 @@
-# OpenIntent Protocol (Demo)
+# OpenIntent Protocol
 
 Brief demo for the idea **Intent + Solver Auction + Settlement**.
 
