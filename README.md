@@ -1,27 +1,27 @@
 # OpenIntent Protocol (Demo)
 
-Demo ngắn gọn cho ý tưởng **Intent + Solver Auction + Settlement**.
+Brief demo for the idea **Intent + Solver Auction + Settlement**.
 
-## Ý tưởng
-- **Maker** ký 1 `Intent` off-chain (EIP-712): muốn đổi `tokenIn` -> `tokenOut`.
-- **Relayer/anyone** đăng intent lên chain.
-- **Solvers** gửi bid `amountOut` (ai trả nhiều tokenOut hơn thì thắng).
-- Sau `deadline`, ai cũng có thể `finalize()` để settle:
-  - Maker nhận `tokenOut`
-  - Solver thắng nhận `tokenIn` đang escrow
+## Idea
+- **Maker** signs an off-chain `Intent` (EIP-712): wants to exchange `tokenIn` -> `tokenOut`.
+- **Relayer/anyone** posts intent to chain.
+- **Solvers** sends bid `amountOut` (whoever pays more tokenOut wins).
+- After `deadline`, anyone can `finalize()` to settle:
+  - Maker receives `tokenOut`
+  - The winning solver receives `tokenIn` which is escrow
 
-> Đây là demo giáo dục. Chưa có withdraw bid losers, slashing thực, partial fill, multi-route, etc.
+> This is an educational demo. There are no withdraw bid losers, real slashing, partial fill, multi-route, etc.
 
-## Cấu trúc repo
+## Repo structure
 - `contracts/OpenIntentBook.sol`: core contract
 - `contracts/MockERC20.sol`: token mock
-- `test/openintent.test.js`: test end-to-end
+- `test/openintent.test.js`: end-to-end testing
 - `scripts/deploy.js`: deploy local
 
-## Yêu cầu
-- Node.js 18+ (khuyến nghị 20+)
+## Request
+- Node.js 18+ (recommended 20+)
 
-## Cài đặt
+## Install
 ```bash
 npm install
 ```
@@ -31,7 +31,7 @@ npm install
 npm test
 ```
 
-## Chạy local node + deploy
+## Run local node + deploy
 Terminal 1:
 ```bash
 npm run node
@@ -42,8 +42,8 @@ Terminal 2:
 npm run deploy
 ```
 
-## Hướng phát triển (gợi ý)
-- Intent chuẩn hóa (EIP draft), thêm `recipient`, `fee`, `partialFill`.
+## Development direction (suggested)
+- Standardized Intent (EIP draft), add `recipient`, `fee`, `partialFill`.
 - Solver bonding/slashing + dispute window.
-- Off-chain solver bot + UI tạo intent.
+- Off-chain solver bot + UI intent creation.
 - Batch settlement, gas optimization.
